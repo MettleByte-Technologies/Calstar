@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Cm+nRGg6o8Q=",
+  "success": true,
+  "projectFilePath": "C:\\kiran\\CalStar\\CalStar\\CalStar.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\HP\\.nuget\\packages\\csvhelper\\33.0.1\\csvhelper.33.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

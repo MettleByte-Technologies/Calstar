@@ -1,0 +1,154 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\kiran\\CalStar\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C4CB4411-0D0A-4ED9-A9C0-29B1C0D5BA69}|CalStar\\CalStar.csproj|c:\\kiran\\calstar\\calstar\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{C4CB4411-0D0A-4ED9-A9C0-29B1C0D5BA69}|CalStar\\CalStar.csproj|solutionrelative:calstar\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C4CB4411-0D0A-4ED9-A9C0-29B1C0D5BA69}|CalStar\\CalStar.csproj|c:\\kiran\\calstar\\calstar\\form1.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
+      "RelativeMoniker": "D:0:0:{C4CB4411-0D0A-4ED9-A9C0-29B1C0D5BA69}|CalStar\\CalStar.csproj|solutionrelative:calstar\\form1.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C4CB4411-0D0A-4ED9-A9C0-29B1C0D5BA69}|CalStar\\CalStar.csproj|c:\\kiran\\calstar\\calstar\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C4CB4411-0D0A-4ED9-A9C0-29B1C0D5BA69}|CalStar\\CalStar.csproj|solutionrelative:calstar\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C4CB4411-0D0A-4ED9-A9C0-29B1C0D5BA69}|CalStar\\CalStar.csproj|c:\\kiran\\calstar\\calstar\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C4CB4411-0D0A-4ED9-A9C0-29B1C0D5BA69}|CalStar\\CalStar.csproj|solutionrelative:calstar\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C4CB4411-0D0A-4ED9-A9C0-29B1C0D5BA69}|CalStar\\CalStar.csproj|c:\\kiran\\calstar\\calstar\\calstar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C4CB4411-0D0A-4ED9-A9C0-29B1C0D5BA69}|CalStar\\CalStar.csproj|solutionrelative:calstar\\calstar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C4CB4411-0D0A-4ED9-A9C0-29B1C0D5BA69}|CalStar\\CalStar.csproj|c:\\kiran\\calstar\\calstar\\cornerstone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C4CB4411-0D0A-4ED9-A9C0-29B1C0D5BA69}|CalStar\\CalStar.csproj|solutionrelative:calstar\\cornerstone.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C4CB4411-0D0A-4ED9-A9C0-29B1C0D5BA69}|CalStar\\CalStar.csproj|c:\\kiran\\calstar\\calstar\\calstarmap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C4CB4411-0D0A-4ED9-A9C0-29B1C0D5BA69}|CalStar\\CalStar.csproj|solutionrelative:calstar\\calstarmap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C4CB4411-0D0A-4ED9-A9C0-29B1C0D5BA69}|CalStar\\CalStar.csproj|c:\\kiran\\calstar\\calstar\\cornerstonemap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C4CB4411-0D0A-4ED9-A9C0-29B1C0D5BA69}|CalStar\\CalStar.csproj|solutionrelative:calstar\\cornerstonemap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\kiran\\CalStar\\CalStar\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "CalStar\\Form1.Designer.cs",
+              "ToolTip": "C:\\kiran\\CalStar\\CalStar\\Form1.Designer.cs",
+              "RelativeToolTip": "CalStar\\Form1.Designer.cs",
+              "ViewState": "AQIAABEAAAAAAAAAAAAwwFYAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-13T10:19:55.288Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\kiran\\CalStar\\CalStar\\Form1.cs",
+              "RelativeDocumentMoniker": "CalStar\\Form1.cs",
+              "ToolTip": "C:\\kiran\\CalStar\\CalStar\\Form1.cs",
+              "RelativeToolTip": "CalStar\\Form1.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAuwA8AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-13T05:55:35.603Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CornerstoneMap.cs",
+              "DocumentMoniker": "C:\\kiran\\CalStar\\CalStar\\CornerstoneMap.cs",
+              "RelativeDocumentMoniker": "CalStar\\CornerstoneMap.cs",
+              "ToolTip": "C:\\kiran\\CalStar\\CalStar\\CornerstoneMap.cs",
+              "RelativeToolTip": "CalStar\\CornerstoneMap.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-13T09:52:32.674Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CalStarMap.cs",
+              "DocumentMoniker": "C:\\kiran\\CalStar\\CalStar\\CalStarMap.cs",
+              "RelativeDocumentMoniker": "CalStar\\CalStarMap.cs",
+              "ToolTip": "C:\\kiran\\CalStar\\CalStar\\CalStarMap.cs",
+              "RelativeToolTip": "CalStar\\CalStarMap.cs",
+              "ViewState": "AQIAAD8AAAAAAAAAAAAuwFsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-13T08:57:34.509Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Cornerstone.cs",
+              "DocumentMoniker": "C:\\kiran\\CalStar\\CalStar\\Cornerstone.cs",
+              "RelativeDocumentMoniker": "CalStar\\Cornerstone.cs",
+              "ToolTip": "C:\\kiran\\CalStar\\CalStar\\Cornerstone.cs",
+              "RelativeToolTip": "CalStar\\Cornerstone.cs",
+              "ViewState": "AQIAABsAAAAAAAAAAAAwwCUAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-13T07:21:40.121Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CalStar.cs",
+              "DocumentMoniker": "C:\\kiran\\CalStar\\CalStar\\CalStar.cs",
+              "RelativeDocumentMoniker": "CalStar\\CalStar.cs",
+              "ToolTip": "C:\\kiran\\CalStar\\CalStar\\CalStar.cs",
+              "RelativeToolTip": "CalStar\\CalStar.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-13T07:21:37.449Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Form1.resx",
+              "DocumentMoniker": "C:\\kiran\\CalStar\\CalStar\\Form1.resx",
+              "RelativeDocumentMoniker": "CalStar\\Form1.resx",
+              "ToolTip": "C:\\kiran\\CalStar\\CalStar\\Form1.resx",
+              "RelativeToolTip": "CalStar\\Form1.resx",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
+              "WhenOpened": "2024-08-13T06:00:21.116Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.cs [Design]",
+              "DocumentMoniker": "C:\\kiran\\CalStar\\CalStar\\Form1.cs",
+              "RelativeDocumentMoniker": "CalStar\\Form1.cs",
+              "ToolTip": "C:\\kiran\\CalStar\\CalStar\\Form1.cs [Design]",
+              "RelativeToolTip": "CalStar\\Form1.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-13T05:52:24.225Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
