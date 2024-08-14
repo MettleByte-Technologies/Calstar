@@ -4,6 +4,7 @@ using System;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Net.Mail;
 using System.Windows.Forms;
 
 namespace CalStar
@@ -39,7 +40,7 @@ namespace CalStar
                 using (var reader = new FileStream(txtInputFile.Text, FileMode.Open, FileAccess.Read, FileShare.Read))
                 using (var calStarCsvReader = new CsvReader(new StreamReader(reader), csvConfig))
                 {
-                    //Read csv file
+                    // Read CSV file
                     calStarCsvReader.Context.RegisterClassMap<CalStarMap>();
                     var calStarRecords = calStarCsvReader.GetRecords<CalStar>().ToList();
 
@@ -50,59 +51,59 @@ namespace CalStar
                         return;
                     }
 
-                    // Convert Calstart to cornerstone.
+                    // Convert Calstar to Cornerstone
                     var cornerstoneRecords = calStarRecords.Select(calStar => new Cornerstone
                     {
                         IDNumber = calStar.PrimarySSN,
                         LastName = calStar.LastName,
                         FirstName = calStar.FirstName,
                         MiddleInt = calStar.MI,
-                        DOB = calStar.DateOfBirth,
+                        DOB = calStar.DateOfBirth?.ToString("yyyyMMdd"),
                         Gender = calStar.Sex,
-                        HireDate = calStar.DateOfHire,
+                        HireDate = (calStar.DateOfHire?.ToString("yyyyMMdd")),
                         CoverageCode = calStar.Coverage1,
                         PlanName = calStar.PlanSelected1,
-                        CoverageEffDate = calStar.BenefitStartDate,
-                        CoverageExpDate = calStar.BenefitTermDate,
-                        Location = calStar.Address,
-                        Relationship = calStar.EmployeeID,
+                        CoverageEffDate = (calStar.BenefitStartDate?.ToString("yyyyMMdd")),
+                        CoverageExpDate = (calStar.BenefitTermDate?.ToString("yyyyMMdd")),
+                        Location = "01-MBR America",
+                        Relationship = calStar.InsuredType,
                         SSN = calStar.PrimarySSN,
-                        DepFirstName = calStar.PrimaryBeneficiaryFirstName,
-                        DepLastName = calStar.PrimaryBeneficiaryLastName,
+                        DepFirstName = (calStar.InsuredType == "S" || calStar.InsuredType == "D") ? calStar.FirstName : string.Empty,
+                        DepLastName = (calStar.InsuredType == "S" || calStar.InsuredType == "D") ? calStar.LastName : string.Empty,
                         DepGender = calStar.Sex,
-                        DepDOB = calStar.DateOfBirth,
+                        DepDOB = (calStar.DateOfBirth?.ToString("yyyyMMdd")),
                         DependentDisabled = calStar.IncludeSpouseCoverage,
                         Address1 = calStar.Address,
                         City = calStar.City,
                         State = calStar.State,
                         ZipCode = calStar.ZipCode,
                         HomePhone = calStar.PhoneNumber,
-                        EmployeeTermDate = calStar.BenefitTermDate,
-                        DepTermDate = calStar.BenefitTermDate,
-                        LocationCodeAbbr = calStar.CountryOfCitizenship,
-                        Department = calStar.EmailAddress,
-                        ApplicationDate = calStar.BenefitStartDate,
+                        EmployeeTermDate = (calStar.BenefitTermDate?.ToString("yyyyMMdd")),
+                        DepTermDate = (calStar.BenefitTermDate?.ToString("yyyyMMdd")),
+                        LocationCodeAbbr = "01-MBR America",
+                        Department = string.Empty,
+                        ApplicationDate = (calStar.BenefitStartDate?.ToString("yyyyMMdd")),
                         ACDStatus = calStar.COBRA,
                         ACDReason = calStar.ElectronicCertificateDelivery,
                         HaveOtherCoverageQuestion = calStar.COBRA,
                         OtherInsCarriersName = calStar.CountryOfCitizenship,
                         NumberOfIDCards = string.Empty,
-                        GroupID = string.Empty,
-                        PlanCode = calStar.PlanSelected1
-                    }).ToList();
+                        GroupID = "MA11011",
+                        PlanCode = "MBR",
+                        EmailAddress = calStar.EmailAddress
 
+                    }).ToList();
 
                     // Write CSV file
                     using (var writer = new FileStream(cornerstoneFilePath, FileMode.Create, FileAccess.Write, FileShare.None))
-                    using (var csvWriter = new CsvWriter(new StreamWriter(writer), new CsvConfiguration(CultureInfo.InvariantCulture)))
+                    using (var csvWriter = new CsvWriter(new StreamWriter(writer), csvConfig))
                     {
                         csvWriter.WriteRecords(cornerstoneRecords);
                     }
 
                     MessageBox.Show("Conversion completed successfully.");
 
-
-                    //Download CSV file
+                    // Download CSV file
                     saveFileDialog1.FileName = tempFileName;
                     if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                     {
@@ -123,6 +124,23 @@ namespace CalStar
                 }
             }
         }
+
+        private DateTime? ParseDate(string dateString)
+        {
+            if (DateTime.TryParseExact(dateString, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime date))
+            {
+                return date;
+            }
+            return null; // Return null if parsing fails
+        }
+
+
+        private string FormatDate(DateTime? date)
+        {
+            return date.HasValue ? date.Value.ToString("yyyyMMdd") : string.Empty;
+        }
+
+
 
         private void buttonBrowse_Click(object sender, EventArgs e)
         {
