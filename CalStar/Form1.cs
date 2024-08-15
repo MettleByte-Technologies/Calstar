@@ -1,11 +1,6 @@
 using CsvHelper;
 using CsvHelper.Configuration;
-using System;
 using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Net.Mail;
-using System.Windows.Forms;
 
 namespace CalStar
 {
@@ -34,7 +29,8 @@ namespace CalStar
                 {
                     HasHeaderRecord = true,
                     HeaderValidated = null,
-                    MissingFieldFound = null
+                    MissingFieldFound = null,
+                    BadDataFound = null
                 };
 
                 using (var reader = new FileStream(txtInputFile.Text, FileMode.Open, FileAccess.Read, FileShare.Read))
@@ -51,46 +47,58 @@ namespace CalStar
                         return;
                     }
 
+                    Cornerstone previousCornerstoneRecord = null;
                     // Convert Calstar to Cornerstone
-                    var cornerstoneRecords = calStarRecords.Select(calStar => new Cornerstone
+                    var cornerstoneRecords = calStarRecords
+                        .Where(calStar => !string.IsNullOrEmpty(calStar.FirstName)) // Filter records with non-empty FirstName
+                        .Select(calStar => //new Cornerstone
                     {
-                        IDNumber = calStar.PrimarySSN,
-                        LastName = calStar.LastName,
-                        FirstName = calStar.FirstName,
-                        MiddleInt = calStar.MI,
-                        DOB = calStar.DateOfBirth?.ToString("yyyyMMdd"),
-                        Gender = calStar.Sex,
-                        HireDate = (calStar.DateOfHire?.ToString("yyyyMMdd")),
-                        CoverageCode = calStar.Coverage1,
-                        PlanName = calStar.PlanSelected1,
-                        CoverageEffDate = (calStar.BenefitStartDate?.ToString("yyyyMMdd")),
-                        CoverageExpDate = (calStar.BenefitTermDate?.ToString("yyyyMMdd")),
-                        Location = "01-MBR America",
-                        Relationship = calStar.InsuredType,
-                        SSN = calStar.PrimarySSN,
-                        DepFirstName = (calStar.InsuredType == "S" || calStar.InsuredType == "D") ? calStar.FirstName : string.Empty,
-                        DepLastName = (calStar.InsuredType == "S" || calStar.InsuredType == "D") ? calStar.LastName : string.Empty,
-                        DepGender = calStar.Sex,
-                        DepDOB = (calStar.DateOfBirth?.ToString("yyyyMMdd")),
-                        DependentDisabled = calStar.IncludeSpouseCoverage,
-                        Address1 = calStar.Address,
-                        City = calStar.City,
-                        State = calStar.State,
-                        ZipCode = calStar.ZipCode,
-                        HomePhone = calStar.PhoneNumber,
-                        EmployeeTermDate = (calStar.BenefitTermDate?.ToString("yyyyMMdd")),
-                        DepTermDate = (calStar.BenefitTermDate?.ToString("yyyyMMdd")),
-                        LocationCodeAbbr = "01-MBR America",
-                        Department = string.Empty,
-                        ApplicationDate = (calStar.BenefitStartDate?.ToString("yyyyMMdd")),
-                        ACDStatus = calStar.COBRA,
-                        ACDReason = calStar.ElectronicCertificateDelivery,
-                        HaveOtherCoverageQuestion = calStar.COBRA,
-                        OtherInsCarriersName = calStar.CountryOfCitizenship,
-                        NumberOfIDCards = string.Empty,
-                        GroupID = "MA11011",
-                        PlanCode = "MBR",
-                        EmailAddress = calStar.EmailAddress
+                        var currentCornerstone = new Cornerstone
+                        {
+                            IDNumber = calStar.EmployeeID,
+                            LastName = calStar.LastName,
+                           // PreviousFirstName = previousCornerstoneRecord?.FirstName,
+                            FirstName = (calStar.InsuredType == "S" || calStar.InsuredType == "D") ? previousCornerstoneRecord?.FirstName : calStar.FirstName,
+                            MiddleInt = (calStar.InsuredType == "S" || calStar.InsuredType == "D") ? previousCornerstoneRecord?.MiddleInt : calStar.MI,
+                            DOB = calStar.DateOfBirth?.ToString("yyyyMMdd"),
+                            Gender = calStar.Sex,
+                            HireDate = calStar.DateOfHire?.ToString("yyyyMMdd"),
+                            CoverageCode = calStar.Coverage1,
+                            PlanName = calStar.PlanSelected1,
+                            CoverageEffDate = (calStar.BenefitStartDate?.ToString("yyyyMMdd")),
+                            CoverageExpDate = (calStar.BenefitTermDate?.ToString("yyyyMMdd")),
+                            Location = "01-MBR America",
+                            Relationship = calStar.InsuredType,
+                            SSN = calStar.PrimarySSN,
+                            DepFirstName = (calStar.InsuredType == "S" || calStar.InsuredType == "D") ? calStar.FirstName : string.Empty,
+                            DepLastName = (calStar.InsuredType == "S" || calStar.InsuredType == "D") ? calStar.LastName : string.Empty,
+                            DepGender = calStar.Sex,
+                            DepDOB = (calStar.DateOfBirth?.ToString("yyyyMMdd")),
+                            DependentDisabled = calStar.IncludeSpouseCoverage,
+                            Address1 = calStar.Address,
+                            City = calStar.City,
+                            State = calStar.State,
+                            ZipCode = calStar.ZipCode,
+                            HomePhone = calStar.PhoneNumber,
+                            EmployeeTermDate = (calStar.BenefitTermDate?.ToString("yyyyMMdd")),
+                            DepTermDate = (calStar.BenefitTermDate?.ToString("yyyyMMdd")),
+                            LocationCodeAbbr = "01-MBR America",
+                            Department = string.Empty,
+                            ApplicationDate = (calStar.BenefitStartDate?.ToString("yyyyMMdd")),
+                            ACDStatus = calStar.COBRA,
+                            ACDReason = calStar.ElectronicCertificateDelivery,
+                            HaveOtherCoverageQuestion = calStar.COBRA,
+                            OtherInsCarriersName = calStar.CountryOfCitizenship,
+                            NumberOfIDCards = string.Empty,
+                            GroupID = "MA11011",
+                            PlanCode = "MBR",
+                            EmailAddress = calStar.EmailAddress
+                        };
+
+                        // Update the previous record reference to the current one
+                        previousCornerstoneRecord = currentCornerstone;
+
+                        return currentCornerstone;
 
                     }).ToList();
 
