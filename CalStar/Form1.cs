@@ -56,8 +56,8 @@ namespace CalStar
                         var currentCornerstone = new Cornerstone
                         {
                             IDNumber = calStar.EmployeeID,
-                            LastName = calStar.LastName,
-                           // PreviousFirstName = previousCornerstoneRecord?.FirstName,
+                            LastName = (calStar.InsuredType == "S" || calStar.InsuredType == "D") ? previousCornerstoneRecord?.LastName : calStar.LastName,
+                            // PreviousFirstName = previousCornerstoneRecord?.FirstName,
                             FirstName = (calStar.InsuredType == "S" || calStar.InsuredType == "D") ? previousCornerstoneRecord?.FirstName : calStar.FirstName,
                             MiddleInt = (calStar.InsuredType == "S" || calStar.InsuredType == "D") ? previousCornerstoneRecord?.MiddleInt : calStar.MI,
                             DOB = calStar.DateOfBirth?.ToString("yyyyMMdd"),
